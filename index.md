@@ -1,37 +1,241 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/Ayushman-cloud/koihatsubyayushman/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<html>
+  <body>
+    <style>
+    $size: 50px;
+$xmove: 44.6px;
+$ymove: 25.8px;
+$shadowfull: 99%;
+$rotate-skew: rotate(-45deg) skew(15deg, 15deg);
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-### Markdown
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00ca92;
+}
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+.container {
+  height: 160px;
+  width: 160px;
+  transform: translate(50%, 10%);
 
-```markdown
-Syntax highlighted code block
+  .cube {
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 
-# Header 1
-## Header 2
-### Header 3
+    & > div {
+      width: $size;
+      height: $size;
+      position: absolute;
+    }
 
-- Bulleted
-- List
+    .top {
+      background: #fff;
+      transform: $rotate-skew;
+    }
 
-1. Numbered
-2. List
+    .left {
+      background: #d8d8d8;
+      transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+    }
 
-**Bold** and _Italic_ and `Code` text
+    .right {
+      background: #c5c5c5;
+      transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+    }
 
-[Link](url) and ![Image](src)
-```
+    &:nth-child(1) {
+      animation-name: anim-one;
+    }
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+    &:nth-child(2) {
+      animation-name: anim-two;
+    }
 
-### Jekyll Themes
+    &:nth-child(3) {
+      animation-name: anim-three;
+    }
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Ayushman-cloud/koihatsubyayushman/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+    &:nth-child(4) {
+      animation-name: anim-four;
+    }
+  }
 
-### Support or Contact
+  .shadow {
+    position: absolute;
+    top: 100%;
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+    & > * {
+      display: inline-block;
+      background: #006d4f;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      animation-duration: 0.75s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .one {
+      animation-name: shadow-one;
+    }
+
+    .two {
+      animation-name: shadow-two;
+    }
+
+    .three {
+      animation-name: shadow-three;
+    }
+
+    .four {
+      animation-name: shadow-four;
+    }
+  }
+}
+
+@keyframes anim-one {
+  from {
+    transform: translate(-$xmove * 2, 0);
+  }
+  50% {
+    transform: translate(-$xmove, -$ymove);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes anim-two {
+  from {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate($xmove, $ymove);
+  }
+}
+
+@keyframes anim-three {
+  from {
+    transform: translate(-$xmove, $ymove);
+  }
+  50% {
+    transform: translate(-$xmove, $ymove);
+  }
+  to {
+    transform: translate(-$xmove * 2, 0px);
+  }
+}
+
+@keyframes anim-four {
+  from {
+    transform: translate($xmove, $ymove);
+  }
+  50% {
+    transform: translate(0, $ymove * 2);
+  }
+  to {
+    transform: translate(-$xmove, $ymove);
+  }
+}
+
+@keyframes shadow-one {
+  from {
+    transform: $rotate-skew translate(-$shadowfull, 0);
+  }
+
+  50% {
+    transform: $rotate-skew translate(0, 0);
+  }
+
+  to {
+    transform: $rotate-skew translate(0, $shadowfull);
+  }
+}
+
+@keyframes shadow-two {
+  from {
+    transform: $rotate-skew translate(-$shadowfull, $shadowfull);
+  }
+
+  50% {
+    transform: $rotate-skew translate(-$shadowfull, $shadowfull);
+  }
+
+  to {
+    transform: $rotate-skew translate(-$shadowfull, 0);
+  }
+}
+
+@keyframes shadow-three {
+  from {
+    transform: $rotate-skew translate(0, $shadowfull);
+  }
+
+  50% {
+    transform: $rotate-skew translate(0, $shadowfull);
+  }
+
+  to {
+    transform: $rotate-skew translate(0, $shadowfull * 2);
+  }
+}
+
+@keyframes shadow-four {
+  from {
+    transform: $rotate-skew translate(0, $shadowfull * 2);
+  }
+
+  50% {
+    transform: $rotate-skew translate(-$shadowfull, $shadowfull * 2);
+  }
+
+  to {
+    transform: $rotate-skew translate(-$shadowfull, $shadowfull);
+  }
+</style>
+<div class="container">
+  <div class="cube">
+    <div class="top"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div class="cube">
+    <div class="top"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div class="cube">
+    <div class="top"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div class="cube">
+    <div class="top"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div class="shadow">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+  </div>
+</div>
+<H1> WELCOME TO KOIHATSU BY AYUSHMAN </H1>
+</body>
+
+    
+
